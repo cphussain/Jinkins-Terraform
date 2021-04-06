@@ -19,10 +19,7 @@ pipeline {
                 ansiColor('xterm')
             }
     stages {
-        stage('Do nothing')
-        {
-
-        }
+        
         stage('checkout') {
             steps {
                  script{
