@@ -21,17 +21,17 @@ pipeline {
     stages {
         stage('Do nothing')
         {
-            
+
         }
         stage('checkout') {
             steps {
                  script{
                         dir("terraform")
                         {
-                            git 
+                            git (
                                 branch: 'main',
                                 url: 'https://github.com/cphussain/Jinkins-Terraform.git'
-                            
+                            )
                         }
                     }
                 }
