@@ -19,19 +19,23 @@ pipeline {
                 ansiColor('xterm')
             }
     stages {
-        // stage('checkout') {
-        //     steps {
-        //          script{
-        //                 dir("terraform")
-        //                 {
-        //                     git 
-        //                         branch: 'main',
-        //                         url: 'https://github.com/cphussain/Jinkins-Terraform.git'
+        stage('Do nothing')
+        {
+            
+        }
+        stage('checkout') {
+            steps {
+                 script{
+                        dir("terraform")
+                        {
+                            git 
+                                branch: 'main',
+                                url: 'https://github.com/cphussain/Jinkins-Terraform.git'
                             
-        //                 }
-        //             }
-        //         }
-        //     }
+                        }
+                    }
+                }
+            }
 
         stage('Plan') {
             steps {
