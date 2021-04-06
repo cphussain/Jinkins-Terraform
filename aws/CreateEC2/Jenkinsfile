@@ -36,8 +36,12 @@ pipeline {
 
         stage('Plan') {
             steps {
-                bat  'cd'
-                
+                bat 'cd terraform/aws/CreateEC2'
+                bat 'terraform init -input=false'
+                bat 'terraform workspace new ${environment}'
+                bat 'terraform workspace select ${environment}'
+                bat "terraform plan -input=false -out tfplan "
+                bat 'terraform show -no-color tfplan > tfplan.txt'
             }
         }
         stage('Approval') {
