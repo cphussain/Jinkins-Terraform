@@ -36,7 +36,8 @@ pipeline {
 
         stage('Plan') {
             steps {
-               
+                bat 'dir'
+                bat 'cd terraform'
                 bat 'dir'
                 bat 'cd aws'
                 bat 'dir'
