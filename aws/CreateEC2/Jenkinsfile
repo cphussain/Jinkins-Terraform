@@ -38,7 +38,7 @@ pipeline {
         stage('Plan') {
             steps {
                script{
-                        dir("aws")
+                        dir("aws/CreateEC2")
                         {
                             bat 'terraform --version'
                             bat 'cd terraformDir/aws/CreateEC2'
