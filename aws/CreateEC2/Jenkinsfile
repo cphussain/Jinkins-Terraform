@@ -18,6 +18,7 @@ pipeline {
                 timestamps ()
                 ansiColor('xterm')
             }
+        tools{terraform 'terraform'}
     stages {
         
         stage('Checkout') {
