@@ -38,8 +38,8 @@ pipeline {
             steps {
                 def tfHome = tool name: 'Terraform', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool',
                 env.Path = "${tfHome};${env.Path}",
-                bat 'terraform --version'
                 bat 'dir'
+                bat 'terraform --version'
                 bat 'cd terraform/aws/CreateEC2'
                 bat 'terraform init -input=false'
                 bat 'terraform workspace new ${environment}'
