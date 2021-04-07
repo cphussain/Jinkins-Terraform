@@ -48,6 +48,7 @@ pipeline {
                             bat "terraform plan -input=false -out tfplan "
                             bat 'terraform show -no-color tfplan > tfplan.txt'
                         }
+               }
             }
         }
         stage('Approval') {
