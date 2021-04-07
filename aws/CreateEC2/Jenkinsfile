@@ -18,13 +18,13 @@ pipeline {
                 timestamps ()
                 ansiColor('xterm')
             }
-        tools{terraform 'terraform'}
+        tools{terraform 'Terraform'}
     stages {
         
         stage('Checkout') {
             steps {
                  script{
-                        dir("terraform")
+                        dir("terraformDir")
                         {
                             git (
                                 branch: 'main',
