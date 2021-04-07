@@ -41,7 +41,7 @@ pipeline {
                         dir("aws/CreateEC2")
                         {
                             bat 'terraform --version'
-                            bat 'cd terraformDir/aws/CreateEC2'
+                           
                             bat 'terraform init -input=false'
                             bat 'terraform workspace new ${environment}'
                             bat 'terraform workspace select ${environment}'
