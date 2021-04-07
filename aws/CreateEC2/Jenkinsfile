@@ -68,8 +68,11 @@ pipeline {
     //    }
 
         stage('Apply') {
-            steps {
+            steps { script{
+                        dir("aws/CreateEC2")
+                        {
                 bat "terraform apply -input=false tfplan"
+                        }}
             }
         }
     }
