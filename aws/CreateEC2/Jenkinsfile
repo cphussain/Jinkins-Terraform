@@ -20,7 +20,7 @@ pipeline {
             }
     stages {
         
-        stage('checkout') {
+        stage('Checkout') {
             steps {
                  script{
                         dir("terraform")
@@ -38,6 +38,7 @@ pipeline {
             steps {
                
                 bat 'dir'
+                bat 'cd aws/CreateEc2'
                 bat 'terraform --version'
                 bat 'cd terraform/aws/CreateEC2'
                 bat 'terraform init -input=false'
