@@ -40,13 +40,13 @@ pipeline {
                script{
                         dir("aws/CreateEC2")
                         {
-                            sh 'terraform --version'
+                            bat 'terraform --version'
                            
-                            sh 'terraform init -input=false'
-                            sh 'terraform workspace new ${environment}'
-                            sh 'terraform workspace select ${environment}'
-                            sh "terraform plan -input=false -out tfplan "
-                            sh 'terraform show -no-color tfplan > tfplan.txt'
+                            bat 'terraform init -input=false'
+                            bat 'terraform workspace new terraformenv'
+                            bat 'terraform workspace select terraformenv'
+                            bat "terraform plan -input=false -out tfplan "
+                            bat 'terraform show -no-color tfplan > tfplan.txt'
                         }
                }
             }
