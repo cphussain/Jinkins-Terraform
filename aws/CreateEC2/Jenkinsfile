@@ -38,7 +38,9 @@ pipeline {
             steps {
                
                 bat 'dir'
-                bat 'cd aws\CreateEc2'
+                bat 'cd aws'
+                bat 'dir'
+                bat 'cd CreateEc2'
                 bat 'dir'
                 bat 'terraform --version'
                 bat 'cd terraform/aws/CreateEC2'
