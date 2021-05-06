@@ -40,13 +40,12 @@ pipeline {
                         {
                             
                             bat 'terraform --version'
-                           
                             bat 'terraform init -input=false'
-                            bat 'terraform workspace delete terraformenv -force'
                             bat 'terraform workspace new terraformenv'
                             bat 'terraform workspace select terraformenv'
                             bat "terraform plan -input=false -out tfplan "
                             bat 'terraform show -no-color tfplan > tfplan.txt'
+                            bat 'terraform workspace delete terraformenv -force'
                         }
                }
             }
