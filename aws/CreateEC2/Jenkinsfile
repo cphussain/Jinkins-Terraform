@@ -46,7 +46,7 @@ pipeline {
                             bat 'terraform --version'
                            
                             bat 'terraform init -input=false'
-                            bat 'terraform workspace delete %environment%'
+                            bat 'terraform workspace delete %environment% -force'
                             bat 'terraform workspace new %environment%'
                             bat 'terraform workspace select %environment%'
                             bat "terraform plan -input=false -out tfplan "
