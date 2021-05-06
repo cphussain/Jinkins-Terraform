@@ -11,6 +11,8 @@ pipeline {
      environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+
+        
     }
 
    agent  any
@@ -18,7 +20,9 @@ pipeline {
                 timestamps ()
                 ansiColor('xterm')
             }
-        tools{terraform 'Terraform'}
+        tools{
+            terraform 'Terraform'
+            }
     stages {
         
         stage('Checkout') {
@@ -29,6 +33,7 @@ pipeline {
                             git (
                                 branch: 'main',
                                 url: 'https://github.com/cphussain/Jinkins-Terraform.git'
+                                
                             )
                         }
                     }
@@ -40,11 +45,12 @@ pipeline {
                script{
                         dir("aws/CreateEC2")
                         {
+                            
                             bat 'terraform --version'
                            
                             bat 'terraform init -input=false'
-                            bat 'terraform workspace new terraformenv'
-                            bat 'terraform workspace select terraformenv'
+                            bat 'terraform workspace new %environment%'
+                            bat 'terraform workspace select %environment%'
                             bat "terraform plan -input=false -out tfplan "
                             bat 'terraform show -no-color tfplan > tfplan.txt'
                         }
