@@ -57,7 +57,14 @@ pipeline {
                }
             }
         }
-       
+        stage('Approval') {
+           
+           steps {
+               script {
+                    input(id: "Deploy Gate", message: "Deploy tfplan.txt?", ok: 'Apply')
+               }
+           }
+       }
         stage('Apply') {
             steps { script{
                         dir("aws/CreateEC2")
