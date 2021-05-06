@@ -64,7 +64,8 @@ pipeline {
                    dir("aws/CreateEC2")
                     {
                         bat 'set /p plan=<tfplan.txt'
-                        input(id: "Deploy Gate", message: "Deploy below Plan? \n %plan%", ok: 'Apply')
+                        input(id: "Deploy Gate", message: "Deploy below Plan? ", ok: 'Apply')
+                        parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
                     }
                }
            }
