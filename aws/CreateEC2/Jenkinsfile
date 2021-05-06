@@ -61,7 +61,8 @@ pipeline {
            
            steps {
                script {
-                    input(id: "Deploy Gate", message: "Deploy tfplan.txt?", ok: 'Apply')
+                    bat 'set /p plan=<tfplan.txt'
+                    input(id: "Deploy Gate", message: "Deploy below Plan? \n %plan%", ok: 'Apply')
                }
            }
        }
