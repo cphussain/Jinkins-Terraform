@@ -58,19 +58,19 @@ pipeline {
                }
             }
         }
-        stage('Approval') {
+    //     stage('Approval') {
            
-           steps {
-               script {
-                   dir("aws/CreateEC2")
-                    {
-                        bat 'set /p plan=<tfplan.txt'
-                        input(id: "Deploy Gate", message: "Do you want to apply the plan? ", ok: 'Apply')
-                        parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
-                    }
-               }
-           }
-       }
+    //        steps {
+    //            script {
+    //                dir("aws/CreateEC2")
+    //                 {
+    //                     bat 'set /p plan=<tfplan.txt'
+    //                     input(id: "Deploy Gate", message: "Do you want to apply the plan? ", ok: 'Apply')
+    //                     parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
+    //                 }
+    //            }
+    //        }
+    //    }
         stage('Apply') {
             steps { script{
                         dir("aws/CreateEC2")
